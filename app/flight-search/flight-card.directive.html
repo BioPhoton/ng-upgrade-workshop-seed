@@ -12,7 +12,7 @@
                 class="btn btn-default"
                 ng-click="$ctrl.select()" />
 
-        <a class="btn btn-default" href="#/flightBooking/flight/{{$ctrl.item.id}}">Edit</a>
+        <a class="btn btn-default" ui-sref="flightBooking.flightEdit({id:$ctrl.item.id})">Edit</a>
 
     </p>
 </div>
