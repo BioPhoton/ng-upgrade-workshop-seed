@@ -13,7 +13,7 @@ class FlightCardController {
 
 export const FlightCardComponent: angular.IComponentOptions = {
     controller: FlightCardController,
-    templateUrl: './flight-card.directive.html',
+    templateUrl: './flight-card.component.html',
     transclude: true,
     bindings: {
         item: '=',
