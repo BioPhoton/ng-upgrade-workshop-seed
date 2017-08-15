@@ -18,9 +18,7 @@ angular
         })
         .state('flightBooking.flightSearch', {
             url: '/flight',
-            controller: 'FlightSearchController',
-            controllerAs: '$ctrl',
-            templateUrl: './flight-search/flight-search.html'
+            template: '<flight-search></flight-search>'
         })
         .state('flightBooking.passengerSearch', {
             url: '/passenger',

@@ -1,7 +1,8 @@
 import {FlightService} from '../services/flight.service';
 import {BookingEventService} from '../services/booking-event.service';
 import {Flight} from '../shared/flight';
-export class FlightSearchController {
+
+class FlightSearchController {
 
   public from = 'Hamburg';
   public to = 'Graz';
@@ -32,4 +33,9 @@ export class FlightSearchController {
     this.selectedFlight = f;
     this.bookingEventService.publish(f);
   }
+}
+
+export const FlightSearchComponent: angular.IComponentOptions = {
+  controller: FlightSearchController,
+  template: require('./flight-search.html')
 }
