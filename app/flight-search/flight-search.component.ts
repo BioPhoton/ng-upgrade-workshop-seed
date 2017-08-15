@@ -37,5 +37,5 @@ class FlightSearchController {
 
 export const FlightSearchComponent: angular.IComponentOptions = {
   controller: FlightSearchController,
-  template: require('./flight-search.html')
+  template: require('./flight-search.component.html')
 }

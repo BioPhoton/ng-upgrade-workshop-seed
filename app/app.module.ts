@@ -15,7 +15,7 @@ import {ShoppingCardComponent} from './shopping-card/shopping-card.component';
 import {PassengerService} from './services/passenger.service';
 import tabs from './tabs/tabs.module';
 import {PassengerCardComponent} from "./passenger-search/passenger-card.component";
-import {FlightSearchComponent} from './flight-search/flight-search';
+import {FlightSearchComponent} from './flight-search/flight-search.component';
 
 var app = angular.module('flight-app', ['ngMessages', 'ui.router', tabs]);
 
