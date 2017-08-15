@@ -7,6 +7,14 @@ class FlightCardController {
     selectedItem: Flight;
     selectedItemChange: Function;
 
+    $onChanges() {
+        console.log('FlightCardController $onChanges');
+    }
+
+    $onInit() {
+        console.log('FlightCardController $onInit');
+    }
+
     select() {
         this.selectedItem = this.item;
         this.selectedItemChange(this.selectedItem);
