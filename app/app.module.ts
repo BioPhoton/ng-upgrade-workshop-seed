@@ -15,6 +15,7 @@ import {ShoppingCardComponent} from './shopping-card/shopping-card.component';
 import {PassengerService} from './services/passenger.service';
 import tabs from './tabs/tabs.module';
 import {PassengerCardComponent} from "./passenger-search/passenger-card.component";
+import {FlightSearchController} from './flight-search/flight-search';
 
 var app = angular.module('flight-app', ['ngMessages', 'ui.router', tabs]);
 
@@ -27,6 +28,7 @@ app.filter('city', createCityFilter);
 app.directive('flightCard', createFlightCardDirective);
 app.directive('city', createCityValidatorDDO);
 app.directive('cityAsync', createCityAsyncValidatorDDO);
+app.controller('FlightSearchController', FlightSearchController)
 app.component('home', HomeComponent);
 app.component('passengerSearch', PassengerSearchComponent);
 app.component('passengerCard', PassengerCardComponent);
