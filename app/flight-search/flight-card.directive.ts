@@ -5,9 +5,11 @@ import * as angular from 'angular';
 class FlightCardController {
     item: Flight;
     selectedItem: Flight;
+    selectedItemChange: Function;
 
     select() {
         this.selectedItem = this.item;
+        this.selectedItemChange(this.selectedItem);
     }
 }
 
@@ -16,7 +18,8 @@ export const FlightCardComponent: angular.IComponentOptions = {
     templateUrl: './flight-card.component.html',
     transclude: true,
     bindings: {
-        item: '=',
-        selectedItem: '='
+        item: '<',
+        selectedItem: '<',
+        selectedItemChange: '&'
     }
 }

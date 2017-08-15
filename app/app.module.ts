@@ -1,7 +1,7 @@
 import * as angular from 'angular';
 import {FlightService} from './services/flight.service';
 import {createCityFilter} from './fliters/city.filter';
-import {FlightCardComponent} from './flight-search/flight-card.component';
+import {FlightCardComponent} from './flight-search/flight-card.directive';
 import {createCityValidatorDDO} from './validation/city-validator';
 import {createCityAsyncValidatorDDO} from './validation/city-async-validator';
 import {HomeComponent} from './home/home.component';
