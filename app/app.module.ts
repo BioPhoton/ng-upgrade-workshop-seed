@@ -1,7 +1,7 @@
 import * as angular from 'angular';
 import {FlightService} from './services/flight.service';
 import {createCityFilter} from './fliters/city.filter';
-import {createFlightCardDirective} from './flight-search/flight-card.directive';
+import {FlightCardComponent} from './flight-search/flight-card.directive';
 import {createCityValidatorDDO} from './validation/city-validator';
 import {createCityAsyncValidatorDDO} from './validation/city-async-validator';
 import {HomeComponent} from './home/home.component';
@@ -25,7 +25,6 @@ app.service('bookingEventService', BookingEventService );
 app.service('oauthService', OAuthService);
 app.constant('baseURL', 'http://www.angular.at')
 app.filter('city', createCityFilter);
-app.directive('flightCard', createFlightCardDirective);
 app.directive('city', createCityValidatorDDO);
 app.directive('cityAsync', createCityAsyncValidatorDDO);
 app.component('home', HomeComponent);
@@ -36,3 +35,4 @@ app.component('flightEdit', FlightEditComponent);
 app.component('flightBooking', FlightBookingComponent);
 app.component('shoppingCard', ShoppingCardComponent);
 app.component('flightSearch', FlightSearchComponent)
+app.component('flightCard', FlightCardComponent);

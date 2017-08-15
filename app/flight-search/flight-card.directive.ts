@@ -11,17 +11,12 @@ class FlightCardController {
     }
 }
 
-export function createFlightCardDirective(): angular.IDirective {
-    return {
-        controller: FlightCardController,
-        templateUrl: './flight-card.directive.html',
-        transclude: true,
-        bindToController: true,
-        controllerAs: '$ctrl',
-        scope: {
-            item: '=',
-            selectedItem: '='
-        }
-
+export const FlightCardComponent: angular.IComponentOptions = {
+    controller: FlightCardController,
+    templateUrl: './flight-card.directive.html',
+    transclude: true,
+    bindings: {
+        item: '=',
+        selectedItem: '='
     }
 }
