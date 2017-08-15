@@ -1,26 +1,34 @@
-export function FlightSearchController(flightService, bookingEventService) {
+import {FlightService} from '../services/flight.service';
+import {BookingEventService} from '../services/booking-event.service';
+import {Flight} from '../shared/flight';
+export class FlightSearchController {
 
-  this.from = 'Hamburg';
-  this.to = 'Graz';
-  this.selectedFlight = null;
-  this.flightService = flightService;
-  this.bookingEventService = bookingEventService;
+  public from = 'Hamburg';
+  public to = 'Graz';
+  public selectedFlight:Flight;
+  private flightService: FlightService;
+  private bookingEventService: BookingEventService;
 
-  this.getFlights = function () {
+  constructor(flightService, bookingEventService) {
+    this.flightService = flightService;
+    this.bookingEventService = bookingEventService;
+  }
+
+  getFlights = function () {
     return this.flightService.flights;
   }
 
-  this.search = function () {
+  search = function () {
 
     return this
       .flightService
       .find(this.from, this.to)
-      .catch(function (resp) {
+      .catch((resp) => {
         console.debug(resp);
       });
   }
 
-  this.select = function (f) {
+  select(f) {
     this.selectedFlight = f;
     this.bookingEventService.publish(f);
   }
