@@ -33,7 +33,7 @@
     "bootstrap": "^3.3.6",
     "jquery": "^3.1.1",
     "reflect-metadata": "^0.1.8",
-    "systemjs": "0.19.39",
+    "systemjs": "0.19.39"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.7",
