@@ -25,8 +25,7 @@
     <div ng-repeat="f in $ctrl.getFlights()" class="col-sm-4" style="padding:20px;">
         <flight-card
                 item="f"
-                selected-item="$ctrl.selectedFlight"
-                selected-item-change="$ctrl.selectedFlight = $locals">
+                selected-item="$ctrl.selectedFlight">
 
             <a  class="btn btn-default" ui-sref="flightBooking.flightEdit({id: f.id})">Edit</a>
         </flight-card>
