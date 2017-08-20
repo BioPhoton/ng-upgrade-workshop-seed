@@ -10,7 +10,10 @@ import {OAuthService} from 'angular2-oauth2/oauth-service';
 import {AppComponent} from './app.component';
 import {FlightBookingComponent} from './flight-booking/flight-booking.component';
 import {FlightEditComponent} from './flight-edit/flight-edit.component';
-import {FlightCardComponent} from './flight-search/flight-card.component';
+import {
+  FlightCardComponent,
+  UpgradedFlightCardComponent
+} from './flight-search/flight-card.component';
 import {FlightSearchComponent} from './flight-search/flight-search.component';
 import {createCityFilter} from './fliters/city.filter';
 import {HomeComponent} from './home/home.component';
@@ -59,7 +62,8 @@ app
     UpgradeModule
   ],
   declarations: [
-    MigratedFlightSearchComponent
+    MigratedFlightSearchComponent,
+    UpgradedFlightCardComponent
   ],
   entryComponents: [
     MigratedFlightSearchComponent

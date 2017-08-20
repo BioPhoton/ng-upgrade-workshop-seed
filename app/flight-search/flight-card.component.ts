@@ -1,6 +1,11 @@
 import {Flight} from '../shared/flight';
 
 import * as angular from 'angular';
+import {
+    Directive, ElementRef, EventEmitter, Injector, Input,
+    Output
+} from '@angular/core';
+import {UpgradeComponent} from '@angular/upgrade/static';
 
 class FlightCardController {
     item: Flight;
@@ -29,5 +34,19 @@ export const FlightCardComponent: angular.IComponentOptions = {
         item: '<',
         selectedItem: '<',
         selectedItemChange: '&'
+    }
+}
+
+@Directive({
+    selector: 'flight-card'
+})
+export class UpgradedFlightCardComponent extends UpgradeComponent {
+
+    @Input() item;
+    @Input() selectedItem;
+    @Output() selectedItemChange = new EventEmitter<Flight>();
+
+    constructor(elementRef: ElementRef, injector: Injector) {
+        super('flightCard', elementRef, injector);
     }
 }
