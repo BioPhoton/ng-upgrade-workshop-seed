@@ -1,23 +1,30 @@
-import * as angular from 'angular';
-import {FlightService} from './services/flight.service';
-import {createCityFilter} from './fliters/city.filter';
-import {FlightCardComponent} from './flight-search/flight-card.component';
-import {createCityValidatorDDO} from './validation/city-validator';
-import {createCityAsyncValidatorDDO} from './validation/city-async-validator';
-import {HomeComponent} from './home/home.component';
-import {PassengerSearchComponent} from './passenger-search/passenger-search.component';
-import {AppComponent} from './app.component';
-import {FlightEditComponent} from './flight-edit/flight-edit.component';
-import {FlightBookingComponent} from './flight-booking/flight-booking.component';
-import { OAuthService} from 'angular2-oauth2/oauth-service';
-import {BookingEventService} from './services/booking-event.service';
-import {ShoppingCardComponent} from './shopping-card/shopping-card.component';
-import {PassengerService} from './services/passenger.service';
-import tabs from './tabs/tabs.module';
-import {PassengerCardComponent} from "./passenger-search/passenger-card.component";
-import {FlightSearchComponent} from './flight-search/flight-search.component';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
+import {BrowserModule} from '@angular/platform-browser';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {UpgradeModule} from '@angular/upgrade/static';
 
-var app = angular.module('flight-app', ['ngMessages', 'ui.router', tabs]);
+import * as angular from 'angular';
+import {OAuthService} from 'angular2-oauth2/oauth-service';
+import {AppComponent} from './app.component';
+import {FlightBookingComponent} from './flight-booking/flight-booking.component';
+import {FlightEditComponent} from './flight-edit/flight-edit.component';
+import {FlightCardComponent} from './flight-search/flight-card.component';
+import {FlightSearchComponent} from './flight-search/flight-search.component';
+import {createCityFilter} from './fliters/city.filter';
+import {HomeComponent} from './home/home.component';
+import {PassengerCardComponent} from './passenger-search/passenger-card.component';
+import {PassengerSearchComponent} from './passenger-search/passenger-search.component';
+import {BookingEventService} from './services/booking-event.service';
+import {FlightService} from './services/flight.service';
+import {PassengerService} from './services/passenger.service';
+import {ShoppingCardComponent} from './shopping-card/shopping-card.component';
+import tabs from './tabs/tabs.module';
+import {createCityAsyncValidatorDDO} from './validation/city-async-validator';
+import {createCityValidatorDDO} from './validation/city-validator';
+
+const app = angular.module('flight-app', ['ngMessages', 'ui.router', tabs]);
 
 app.service('flightService', FlightService);
 app.service('passengerService', PassengerService);
@@ -36,3 +43,22 @@ app.component('flightBooking', FlightBookingComponent);
 app.component('shoppingCard', ShoppingCardComponent);
 app.component('flightSearch', FlightSearchComponent)
 app.component('flightCard', FlightCardComponent);
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    HttpModule,
+    FormsModule,
+    UpgradeModule
+  ]
+})
+export class AppModule {
+  constructor(private upgrade: UpgradeModule) {}
+  ngDoBootstrap() {
+    this.upgrade.bootstrap(document.body, ['flight-app'], { strictDi: false });
+  }
+}
+
+platformBrowserDynamic().bootstrapModule(AppModule);
+
+/**/
