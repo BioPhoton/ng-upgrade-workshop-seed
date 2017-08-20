@@ -4,7 +4,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import 'rxjs/add/operator/toPromise'
 
 @Injectable()
-export class PassengerService {
+export class MigratedPassengerService {
 
     constructor(
       private http: HttpClient) {

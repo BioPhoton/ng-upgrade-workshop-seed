@@ -1,9 +1,12 @@
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import {downgradeComponent, UpgradeModule} from '@angular/upgrade/static';
+import {
+  downgradeComponent, downgradeInjectable,
+  UpgradeModule
+} from '@angular/upgrade/static';
 
 import * as angular from 'angular';
 import {OAuthService} from 'angular2-oauth2/oauth-service';
@@ -21,20 +24,20 @@ import {PassengerCardComponent} from './passenger-search/passenger-card.componen
 import {PassengerSearchComponent} from './passenger-search/passenger-search.component';
 import {BookingEventService} from './services/booking-event.service';
 import {FlightService, flightServiceProvider} from './services/flight.service';
-import {PassengerService} from './services/passenger.service';
 import {ShoppingCardComponent} from './shopping-card/shopping-card.component';
 import tabs from './tabs/tabs.module';
 import {createCityAsyncValidatorDDO} from './validation/city-async-validator';
 import {createCityValidatorDDO} from './validation/city-validator';
 import {MigratedFlightSearchComponent} from './flight-search/migrated-flight-search.component';
+import {MigratedPassengerService} from './services/migrated-passenger.service';
 
 const app = angular.module('flight-app', ['ngMessages', 'ui.router', tabs]);
 
 app.service('flightService', FlightService);
-app.service('passengerService', PassengerService);
 app.service('bookingEventService', BookingEventService );
 app.service('oauthService', OAuthService);
-app.constant('baseURL', 'http://www.angular.at')
+app.factory('passengerService', downgradeInjectable(MigratedPassengerService))
+app.constant('baseURL', 'http://www.angular.at');
 app.filter('city', createCityFilter);
 app.directive('city', createCityValidatorDDO);
 app.directive('cityAsync', createCityAsyncValidatorDDO);
@@ -57,7 +60,7 @@ app
 @NgModule({
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     FormsModule,
     UpgradeModule
   ],
@@ -69,7 +72,8 @@ app
     MigratedFlightSearchComponent
   ],
   providers: [
-    flightServiceProvider
+    flightServiceProvider,
+    MigratedPassengerService
   ]
 })
 export class AppModule {
