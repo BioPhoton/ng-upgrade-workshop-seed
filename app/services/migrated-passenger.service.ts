@@ -1,11 +1,12 @@
 import {Passenger} from '../shared/passenger';
 import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class PassengerService {
 
     constructor(
-      private $http: ng.IHttpService) {
+      private http: HttpClient) {
     }
 
     find(name): Promise<Passenger[]> {
@@ -14,7 +15,7 @@ export class PassengerService {
         var urlParams = { name: name };
 
         return this
-          .$http
+          .http
           .get(url, { params: urlParams })
           .then(resp => resp.data);
     }
