@@ -26,8 +26,7 @@
 
         <flight-card
           [item]="f"
-          [selectedItem]="selectedFlight"
-          (selectedItemChange)="select($event)">
+          [(selectedItem)]="selectedFlight">
             <a  class="btn btn-default" href="#/flightBooking.flightEdit/{{f.id}}">Edit</a>
         </flight-card>
 
