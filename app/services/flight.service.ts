@@ -54,3 +54,15 @@ export class FlightService {
     }
 
 }
+
+// creating a provider object for flightService
+
+export function flightServiceFactory($injector: any) {
+    return $injector.get('flightService');
+}
+
+export const flightServiceProvider = {
+    provide: FlightService,
+    useFactory: flightServiceFactory,
+    deps: ['$injector']
+};

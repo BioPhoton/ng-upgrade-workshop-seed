@@ -17,7 +17,7 @@ import {HomeComponent} from './home/home.component';
 import {PassengerCardComponent} from './passenger-search/passenger-card.component';
 import {PassengerSearchComponent} from './passenger-search/passenger-search.component';
 import {BookingEventService} from './services/booking-event.service';
-import {FlightService} from './services/flight.service';
+import {FlightService, flightServiceProvider} from './services/flight.service';
 import {PassengerService} from './services/passenger.service';
 import {ShoppingCardComponent} from './shopping-card/shopping-card.component';
 import tabs from './tabs/tabs.module';
@@ -63,6 +63,9 @@ app
   ],
   entryComponents: [
     MigratedFlightSearchComponent
+  ],
+  providers: [
+    flightServiceProvider
   ]
 })
 export class AppModule {
