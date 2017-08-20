@@ -3,7 +3,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import {UpgradeModule} from '@angular/upgrade/static';
+import {downgradeComponent, UpgradeModule} from '@angular/upgrade/static';
 
 import * as angular from 'angular';
 import {OAuthService} from 'angular2-oauth2/oauth-service';
@@ -23,6 +23,7 @@ import {ShoppingCardComponent} from './shopping-card/shopping-card.component';
 import tabs from './tabs/tabs.module';
 import {createCityAsyncValidatorDDO} from './validation/city-async-validator';
 import {createCityValidatorDDO} from './validation/city-validator';
+import {MigratedFlightSearchComponent} from './flight-search/migrated-flight-search.component';
 
 const app = angular.module('flight-app', ['ngMessages', 'ui.router', tabs]);
 
@@ -44,12 +45,24 @@ app.component('shoppingCard', ShoppingCardComponent);
 app.component('flightSearch', FlightSearchComponent)
 app.component('flightCard', FlightCardComponent);
 
+app
+  .directive(
+    'migratedFlightSearchComponent',
+    downgradeComponent({ component: MigratedFlightSearchComponent }) as angular.IDirectiveFactory
+  );
+
 @NgModule({
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
     UpgradeModule
+  ],
+  declarations: [
+    MigratedFlightSearchComponent
+  ],
+  entryComponents: [
+    MigratedFlightSearchComponent
   ]
 })
 export class AppModule {
