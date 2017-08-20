@@ -18,7 +18,7 @@ angular
         })
         .state('flightBooking.flightSearch', {
             url: '/flight',
-            template: '<flight-search></flight-search>'
+            template: '<migrated-flight-search-component></migrated-flight-search-component>'
         })
         .state('flightBooking.passengerSearch', {
             url: '/passenger',
