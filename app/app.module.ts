@@ -33,6 +33,7 @@ import tabs from './tabs/tabs.module';
 import {createCityAsyncValidatorDDO} from './validation/city-async-validator';
 import {createCityValidatorDDO} from './validation/city-validator';
 import {MigratedPassengerCardComponent} from './passenger-search/migrated-passenger-card.component';
+import {PassengerStatus} from './pipes/passenger-status.pipe';
 
 const app = angular.module('flight-app', ['ngMessages', 'ui.router', tabs]);
 
@@ -82,7 +83,8 @@ app
     MigratedFlightSearchComponent,
     UpgradedFlightCardComponent,
     MigratedFlightEditComponent,
-    MigratedPassengerCardComponent
+    MigratedPassengerCardComponent,
+    PassengerStatus
   ],
   entryComponents: [
     MigratedFlightSearchComponent,
@@ -91,7 +93,8 @@ app
   ],
   providers: [
     flightServiceProvider,
-    MigratedPassengerService
+    MigratedPassengerService,
+    PassengerStatus
   ]
 })
 export class AppModule {
