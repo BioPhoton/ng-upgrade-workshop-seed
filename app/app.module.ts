@@ -1,10 +1,11 @@
+import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {
-  downgradeComponent, downgradeInjectable,
+  downgradeComponent,
+  downgradeInjectable,
   UpgradeModule
 } from '@angular/upgrade/static';
 
@@ -12,24 +13,25 @@ import * as angular from 'angular';
 import {OAuthService} from 'angular2-oauth2/oauth-service';
 import {AppComponent} from './app.component';
 import {FlightBookingComponent} from './flight-booking/flight-booking.component';
+import {MigratedFlightEditComponent} from './flight-edit/migrated-flight-edit.component';
 import {
   FlightCardComponent,
   UpgradedFlightCardComponent
 } from './flight-search/flight-card.component';
 import {FlightSearchComponent} from './flight-search/flight-search.component';
+import {MigratedFlightSearchComponent} from './flight-search/migrated-flight-search.component';
 import {createCityFilter} from './fliters/city.filter';
 import {HomeComponent} from './home/home.component';
 import {PassengerCardComponent} from './passenger-search/passenger-card.component';
 import {PassengerSearchComponent} from './passenger-search/passenger-search.component';
 import {BookingEventService} from './services/booking-event.service';
 import {FlightService, flightServiceProvider} from './services/flight.service';
+import {MigratedPassengerService} from './services/migrated-passenger.service';
 import {ShoppingCardComponent} from './shopping-card/shopping-card.component';
+import {MigratedTabsModule} from './tabs/migrated-tabs.module';
 import tabs from './tabs/tabs.module';
 import {createCityAsyncValidatorDDO} from './validation/city-async-validator';
 import {createCityValidatorDDO} from './validation/city-validator';
-import {MigratedFlightSearchComponent} from './flight-search/migrated-flight-search.component';
-import {MigratedPassengerService} from './services/migrated-passenger.service';
-import {MigratedFlightEditComponent} from './flight-edit/migrated-flight-edit.component';
 
 const app = angular.module('flight-app', ['ngMessages', 'ui.router', tabs]);
 
@@ -67,7 +69,8 @@ app
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    UpgradeModule
+    UpgradeModule,
+    MigratedTabsModule
   ],
   declarations: [
     MigratedFlightSearchComponent,
