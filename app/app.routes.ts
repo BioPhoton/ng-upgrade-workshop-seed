@@ -27,14 +27,14 @@ angular
 
         .state('flightBooking.flightEdit', {
           url: '/flight/:id',
-          template: '<migrated-flight-edit-component [id]="$ctrl.id"></migrated-flight-edit-componentflight-edit>',
+          template: '<migrated-flight-edit-component [flight]="$ctrl.flight"></migrated-flight-edit-componentflight-edit>',
           resolve: {
-            id: $stateParams => $stateParams.id
-            // same as:
-            // id: function($stateParams) { return $stateParams.id; }
+            flight: ($stateParams, flightService) => {
+              return flightService.getById($stateParams.id);
+            }
           },
           controllerAs: '$ctrl',
-          controller: function(id) { this.id = id; }
+          controller: function(flight) { this.flight = flight; }
         });
 });
 
