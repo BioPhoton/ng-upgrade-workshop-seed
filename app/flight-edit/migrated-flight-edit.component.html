@@ -1,7 +1,7 @@
 <h1>{{info}}</h1>
 <p>&nbsp;</p>
 <migrated-tabs-component>
-    <div [title]="Flight">
+    <migrated-tab-component [title]="'Flight'">
         <div *ngIf="message" style="color: red">
             {{message}}
         </div>
@@ -29,8 +29,8 @@
         <div class="form-group">
             <button class="btn btn-primary" (click)="save()">Save!</button>
         </div>
-    </div>
-    <div [title]="Details">
+    </migrated-tab-component>
+    <migrated-tab-component [title]="'Details'">
         <pre>{{ flight | json }}</pre>
-    </div>
+    </migrated-tab-component>
 </migrated-tabs-component>
