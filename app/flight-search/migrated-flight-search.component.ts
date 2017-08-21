@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
+import {MigratedFlightService} from '../services/migrated-flight.service';
 import {Flight} from '../shared/flight';
-import {FlightService} from '../services/flight.service';
 
 @Component({
   selector: 'migrated-flight-search-component',
@@ -12,7 +12,7 @@ export class MigratedFlightSearchComponent {
   public to = 'Graz';
   public selectedFlight: Flight;
 
-  constructor(private flightService: FlightService) {
+  constructor(private flightService: MigratedFlightService) {
   }
 
   getFlights() {
