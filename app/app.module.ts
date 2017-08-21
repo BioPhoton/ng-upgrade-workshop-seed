@@ -40,6 +40,7 @@ const app = angular.module('flight-app', ['ngMessages', 'ui.router', tabs]);
 app.service('bookingEventService', BookingEventService );
 app.service('oauthService', OAuthService);
 app.factory('passengerService', downgradeInjectable(MigratedPassengerService))
+app.factory('flightService', downgradeInjectable(MigratedFlightService))
 app.constant('baseURL', 'http://www.angular.at');
 app.filter('city', createCityFilter);
 app.directive('city', createCityValidatorDDO);
@@ -51,6 +52,7 @@ app.component('flightBooking', FlightBookingComponent);
 app.component('shoppingCard', ShoppingCardComponent);
 app.component('flightSearch', FlightSearchComponent)
 app.component('flightCard', FlightCardComponent);
+
 
 app
   .directive(
@@ -69,6 +71,7 @@ app
     'migratedPassengerCardComponent',
     downgradeComponent({ component: MigratedPassengerCardComponent }) as angular.IDirectiveFactory
   );
+
 
 @NgModule({
   imports: [
