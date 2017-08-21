@@ -32,6 +32,7 @@ import {MigratedTabsModule} from './tabs/migrated-tabs.module';
 import tabs from './tabs/tabs.module';
 import {createCityAsyncValidatorDDO} from './validation/city-async-validator';
 import {createCityValidatorDDO} from './validation/city-validator';
+import {MigratedPassengerCardComponent} from './passenger-search/migrated-passenger-card.component';
 
 const app = angular.module('flight-app', ['ngMessages', 'ui.router', tabs]);
 
@@ -45,7 +46,6 @@ app.directive('city', createCityValidatorDDO);
 app.directive('cityAsync', createCityAsyncValidatorDDO);
 app.component('home', HomeComponent);
 app.component('passengerSearch', PassengerSearchComponent);
-app.component('passengerCard', PassengerCardComponent);
 app.component('app', AppComponent);
 app.component('flightBooking', FlightBookingComponent);
 app.component('shoppingCard', ShoppingCardComponent);
@@ -64,6 +64,12 @@ app
     downgradeComponent({ component: MigratedFlightEditComponent }) as angular.IDirectiveFactory
   );
 
+app
+  .directive(
+    'migratedPassengerCardComponent',
+    downgradeComponent({ component: MigratedPassengerCardComponent }) as angular.IDirectiveFactory
+  );
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -75,11 +81,13 @@ app
   declarations: [
     MigratedFlightSearchComponent,
     UpgradedFlightCardComponent,
-    MigratedFlightEditComponent
+    MigratedFlightEditComponent,
+    MigratedPassengerCardComponent
   ],
   entryComponents: [
     MigratedFlightSearchComponent,
-    MigratedFlightEditComponent
+    MigratedFlightEditComponent,
+    MigratedPassengerCardComponent
   ],
   providers: [
     flightServiceProvider,
