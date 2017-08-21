@@ -22,22 +22,21 @@ import {FlightSearchComponent} from './flight-search/flight-search.component';
 import {MigratedFlightSearchComponent} from './flight-search/migrated-flight-search.component';
 import {createCityFilter} from './fliters/city.filter';
 import {HomeComponent} from './home/home.component';
-import {PassengerCardComponent} from './passenger-search/passenger-card.component';
+import {MigratedPassengerCardComponent} from './passenger-search/migrated-passenger-card.component';
 import {PassengerSearchComponent} from './passenger-search/passenger-search.component';
+import {PassengerStatus} from './pipes/passenger-status.pipe';
 import {BookingEventService} from './services/booking-event.service';
-import {FlightService, flightServiceProvider} from './services/flight.service';
+import {MigratedFlightService} from './services/migrated-flight.service';
 import {MigratedPassengerService} from './services/migrated-passenger.service';
 import {ShoppingCardComponent} from './shopping-card/shopping-card.component';
 import {MigratedTabsModule} from './tabs/migrated-tabs.module';
 import tabs from './tabs/tabs.module';
 import {createCityAsyncValidatorDDO} from './validation/city-async-validator';
 import {createCityValidatorDDO} from './validation/city-validator';
-import {MigratedPassengerCardComponent} from './passenger-search/migrated-passenger-card.component';
-import {PassengerStatus} from './pipes/passenger-status.pipe';
+import {baseURL} from './base-url.token';
 
 const app = angular.module('flight-app', ['ngMessages', 'ui.router', tabs]);
 
-app.service('flightService', FlightService);
 app.service('bookingEventService', BookingEventService );
 app.service('oauthService', OAuthService);
 app.factory('passengerService', downgradeInjectable(MigratedPassengerService))
@@ -92,9 +91,10 @@ app
     MigratedPassengerCardComponent
   ],
   providers: [
-    flightServiceProvider,
+    MigratedFlightService,
     MigratedPassengerService,
-    PassengerStatus
+    PassengerStatus,
+    {provide : baseURL, useValue : "http://www.angular.at"}
   ]
 })
 export class AppModule {
