@@ -12,7 +12,6 @@ import * as angular from 'angular';
 import {OAuthService} from 'angular2-oauth2/oauth-service';
 import {AppComponent} from './app.component';
 import {FlightBookingComponent} from './flight-booking/flight-booking.component';
-import {FlightEditComponent} from './flight-edit/flight-edit.component';
 import {
   FlightCardComponent,
   UpgradedFlightCardComponent
@@ -30,6 +29,7 @@ import {createCityAsyncValidatorDDO} from './validation/city-async-validator';
 import {createCityValidatorDDO} from './validation/city-validator';
 import {MigratedFlightSearchComponent} from './flight-search/migrated-flight-search.component';
 import {MigratedPassengerService} from './services/migrated-passenger.service';
+import {MigratedFlightEditComponent} from './flight-edit/migrated-flight-edit.component';
 
 const app = angular.module('flight-app', ['ngMessages', 'ui.router', tabs]);
 
@@ -45,7 +45,6 @@ app.component('home', HomeComponent);
 app.component('passengerSearch', PassengerSearchComponent);
 app.component('passengerCard', PassengerCardComponent);
 app.component('app', AppComponent);
-app.component('flightEdit', FlightEditComponent);
 app.component('flightBooking', FlightBookingComponent);
 app.component('shoppingCard', ShoppingCardComponent);
 app.component('flightSearch', FlightSearchComponent)
@@ -57,6 +56,12 @@ app
     downgradeComponent({ component: MigratedFlightSearchComponent }) as angular.IDirectiveFactory
   );
 
+app
+  .directive(
+    'migratedFlightEditComponent',
+    downgradeComponent({ component: MigratedFlightEditComponent }) as angular.IDirectiveFactory
+  );
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -66,10 +71,12 @@ app
   ],
   declarations: [
     MigratedFlightSearchComponent,
-    UpgradedFlightCardComponent
+    UpgradedFlightCardComponent,
+    MigratedFlightEditComponent
   ],
   entryComponents: [
-    MigratedFlightSearchComponent
+    MigratedFlightSearchComponent,
+    MigratedFlightEditComponent
   ],
   providers: [
     flightServiceProvider,
