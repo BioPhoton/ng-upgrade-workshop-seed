@@ -3,7 +3,7 @@ import { IStateProvider, IUrlRouterProvider } from 'angular-ui-router';
 
 angular
     .module('flight-app')
-    .config(function ($stateProvider: IStateProvider, $urlRouterProvider: IUrlRouterProvider) {
+    .config(['$stateProvider', '$urlRouterProvider',function ($stateProvider: IStateProvider, $urlRouterProvider: IUrlRouterProvider) {
 
         $urlRouterProvider.otherwise('/home');
 
@@ -47,7 +47,7 @@ angular
           controllerAs: '$ctrl',
           controller: function(passenger) { this.passenger = passenger; }
         });
-});
+}]);
 
 
 
