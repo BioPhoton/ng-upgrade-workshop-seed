@@ -12,6 +12,7 @@ import {
 import * as angular from 'angular';
 import {OAuthService} from 'angular2-oauth2/oauth-service';
 import {AppComponent} from './app.component';
+import {baseURL} from './base-url.token';
 import {FlightBookingComponent} from './flight-booking/flight-booking.component';
 import {MigratedFlightEditComponent} from './flight-edit/migrated-flight-edit.component';
 import {
@@ -22,6 +23,7 @@ import {FlightSearchComponent} from './flight-search/flight-search.component';
 import {MigratedFlightSearchComponent} from './flight-search/migrated-flight-search.component';
 import {createCityFilter} from './fliters/city.filter';
 import {HomeComponent} from './home/home.component';
+import {MigratedPassengerEditComponent} from './passenger-edit/migrated-passenger-edit.component';
 import {MigratedPassengerCardComponent} from './passenger-search/migrated-passenger-card.component';
 import {PassengerSearchComponent} from './passenger-search/passenger-search.component';
 import {PassengerStatus} from './pipes/passenger-status.pipe';
@@ -33,10 +35,8 @@ import {MigratedTabsModule} from './tabs/migrated-tabs.module';
 import tabs from './tabs/tabs.module';
 import {createCityAsyncValidatorDDO} from './validation/city-async-validator';
 import {createCityValidatorDDO} from './validation/city-validator';
-import {baseURL} from './base-url.token';
-import {MigratedPassengerEditComponent} from './passenger-edit/migrated-passenger-edit.component';
-import {CityValidator} from './validation/migrated-city-validator';
 import {CityAsyncValidator} from './validation/migrated-city-async-validator';
+import {CityValidator} from './validation/migrated-city-validator';
 
 const app = angular.module('flight-app', ['ngMessages', 'ui.router', tabs]);
 
@@ -116,10 +116,8 @@ app
 export class AppModule {
   constructor(private upgrade: UpgradeModule) {}
   ngDoBootstrap() {
-    this.upgrade.bootstrap(document.body, ['flight-app'], { strictDi: false });
+    this.upgrade.bootstrap(document.body, ['flight-app'], { strictDi: true });
   }
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule);
-
-/**/
