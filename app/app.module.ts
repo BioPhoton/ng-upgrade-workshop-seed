@@ -36,6 +36,7 @@ import {createCityValidatorDDO} from './validation/city-validator';
 import {baseURL} from './base-url.token';
 import {MigratedPassengerEditComponent} from './passenger-edit/migrated-passenger-edit.component';
 import {CityValidator} from './validation/migrated-city-validator';
+import {CityAsyncValidator} from './validation/migrated-city-async-validator';
 
 const app = angular.module('flight-app', ['ngMessages', 'ui.router', tabs]);
 
@@ -96,7 +97,8 @@ app
     MigratedPassengerCardComponent,
     PassengerStatus,
     MigratedPassengerEditComponent,
-    CityValidator
+    CityValidator,
+    CityAsyncValidator
   ],
   entryComponents: [
     MigratedFlightSearchComponent,
