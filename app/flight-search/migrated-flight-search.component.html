@@ -5,14 +5,14 @@
     <div class="form-group">
         <label>From:</label>
         <input
-                name="from" class="form-control" [(ngModel)]="from" required city>
-        errors: {{f?.controls?.from?.errors | json}}
-        <small class="text-danger" *ngIf="f?.controls?.from?.hasError('city')">Wrong City</small>
+                name="from" class="form-control" [(ngModel)]="from" city>
+        <small class="text-danger" *ngIf="f?.controls?.from?.hasError('city')">No flight from city</small>
     </div>
 
     <div class="form-group">
         <label>To:</label>
-        <input class="form-control" [(ngModel)]="to" name="to">
+        <input class="form-control" [(ngModel)]="to" name="to" asyncCity>
+        <small class="text-danger" *ngIf="f?.controls?.to?.hasError('asyncCity')">No flight to city</small>
     </div>
     <div class="form-group">
         <button
