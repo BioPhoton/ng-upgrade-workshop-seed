@@ -27,7 +27,7 @@ angular
 
         .state('flightBooking.flightEdit', {
           url: '/flight/:id',
-          template: '<migrated-flight-edit-component [flight]="$ctrl.flight"></migrated-flight-edit-componentflight-edit>',
+          template: '<migrated-flight-edit-component [flight]="$ctrl.flight"></migrated-flight-edit-component>',
           resolve: {
             flight: ($stateParams, flightService) => {
               return flightService.getById($stateParams.id);
@@ -35,6 +35,17 @@ angular
           },
           controllerAs: '$ctrl',
           controller: function(flight) { this.flight = flight; }
+        })
+        .state('flightBooking.passengerEdit', {
+          url: '/passenger/:id',
+          template: '<migrated-passenger-edit-component [passenger]="$ctrl.passenger"></migrated-passenger-edit-component>',
+          resolve: {
+            passenger: ($stateParams, passengerService) => {
+              return passengerService.getById($stateParams.id);
+            }
+          },
+          controllerAs: '$ctrl',
+          controller: function(passenger) { this.passenger = passenger; }
         });
 });
 
