@@ -1,0 +1,41 @@
+<h1>{{info}}</h1>
+<p>&nbsp;</p>
+<migrated-tabs-component>
+    <migrated-tab-component [title]="'Passenger'">
+        <div *ngIf="message" style="color: red">
+            {{message}}
+        </div>
+        
+        <div class="form-group">
+            <label>Id</label>
+            <input class="form-control" [(ngModel)]="passenger.id">
+        </div>
+
+        <div class="form-group">
+            <label>First Name</label>
+            <input class="form-control" [(ngModel)]="passenger.firstName">
+        </div>
+
+        <div class="form-group">
+            <label>Name</label>
+            <input class="form-control" [(ngModel)]="passenger.name">
+        </div>
+
+        <div class="form-group">
+            <label>Bonus Miles</label>
+            <input class="form-control" [(ngModel)]="passenger.bonusMiles">
+        </div>
+
+        <div class="form-group">
+            <label>Passenger Status</label>
+            <input class="form-control" [(ngModel)]="passenger.passengerStatus">
+        </div>
+        
+        <div class="form-group">
+            <button class="btn btn-primary" (click)="save()">Save!</button>
+        </div>
+    </migrated-tab-component>
+    <migrated-tab-component [title]="'Details'">
+        <pre>{{ passenger | json }}</pre>
+    </migrated-tab-component>
+</migrated-tabs-component>
