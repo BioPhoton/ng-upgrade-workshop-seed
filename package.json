@@ -36,9 +36,16 @@
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
+    "@types/angular": "^1.6.32",
+    "@types/angular-mocks": "^1.5.11",
+    "@types/angular-ui-router": "^1.1.38",
+    "@types/core-js": "^0.9.43",
+    "@types/jasmine": "^2.6.0",
+    "@types/jquery": "^3.2.12",
+    "@types/node": "^8.0.28",
     "angular-mocks": "^1.5.7",
     "angular2-template-loader": "^0.5.0",
-    "awesome-typescript-loader": "^1.0.0",
+    "awesome-typescript-loader": "^3.2.3",
     "file-loader": "^0.8.5",
     "html-loader": "^0.4.3",
     "ie-shim": "^0.1.0",
