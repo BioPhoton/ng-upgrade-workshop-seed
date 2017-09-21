@@ -18,11 +18,10 @@
 
 <div class="row">
     <div ng-repeat="p in $ctrl.passenger" class="col-sm-4" style="padding:20px;">
-        <passenger-card
-                item="p"
-                selected-item="$ctrl.selectedPassenger"
-                selected-item-change="$ctrl.selectedPassenger = $locals">
-        </passenger-card>
+        <migrated-passenger-card-component
+                [item]="p"
+                [(selected-item)]=$ctrl.selectedPassenger = $locals">
+        </migrated-passenger-card-component>
 
     </div>
 </div>

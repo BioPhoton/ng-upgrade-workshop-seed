@@ -1,0 +1,46 @@
+<h1>{{info}}</h1>
+<p>&nbsp;</p>
+<migrated-tabs-component>
+    <migrated-tab-component [title]="'Passenger'">
+        <form #f="ngForm" novalidate>
+            <div *ngIf="message" style="color: red">
+                {{message}}
+            </div>
+
+            <div class="form-group">
+                <label>Id</label>
+                <input class="form-control" [(ngModel)]="passenger.id" name="id" required>
+                <small class="text-danger" *ngIf="f?.controls?.id?.hasError('required')">Required</small>
+            </div>
+
+            <div class="form-group">
+                <label>First Name</label>
+                <input class="form-control" [(ngModel)]="passenger.firstName" name="firstName" minlength="3">
+                <small class="text-danger" *ngIf="f?.controls?.firstName?.hasError('minlength')">Min length is 3</small>
+            </div>
+
+            <div class="form-group">
+                <label>Name</label>
+                <input class="form-control" [(ngModel)]="passenger.name"  name="name" minlength="3">
+                <small class="text-danger" *ngIf="f?.controls?.name?.hasError('minlength')">Min length is 3</small>
+            </div>
+
+            <div class="form-group">
+                <label>Bonus Miles</label>
+                <input type="number" class="form-control" [(ngModel)]="passenger.bonusMiles" name="bonusMiles" required min="10" max="1000000">
+                <small class="text-danger" *ngIf="f?.controls?.bonusMiles?.hasError('required')">Required</small>
+            </div>
+            <div class="form-group">
+                <label>Passenger Status</label>
+                <input class="form-control" [(ngModel)]="passenger.passengerStatus" name="passengerStatus">
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary" (click)="save()">Save!</button>
+            </div>
+        </form>
+    </migrated-tab-component>
+    <migrated-tab-component [title]="'Details'">
+        <pre>{{ passenger | json }}</pre>
+    </migrated-tab-component>
+</migrated-tabs-component>

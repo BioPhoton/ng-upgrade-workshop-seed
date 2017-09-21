@@ -1,0 +1,13 @@
+
+<div style="padding:20px;"
+     [ngStyle]="{'background-color': (selectedItem?.id == item?.id) ? 'orange' : 'lightsteelblue' }" >
+
+ <h2>{{item.firstName}} {{item.name}}</h2>
+ <p>
+  Passenger-State: {{ item.passengerStatus | passengerStatus}}
+ </p>
+ <p>
+  <input type="button" class="btn btn-default" value="Select" (click)="select()">
+  <a class="btn btn-default" href="{{'#!/flightBooking/passenger/'+item.id}}">Edit</a>
+ </p>
+</div>
